@@ -12,3 +12,23 @@ I need this code, but don't know where, perhaps should make some middleware, don
 
 Pull your server into this file and start it!
 */
+
+require('dotenv').config()
+
+const { PORT } = require('./config')
+const express = require('express')
+
+const server = express()
+
+server.use(express.json())
+
+server.use('*', (req,res)=> {
+    res.json({
+        message: ' WEB 44 is Awesome'
+    })
+})
+
+
+server.listen(PORT , () => {
+    console.log('Server listening on',PORT )
+});
